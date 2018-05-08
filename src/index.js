@@ -10,17 +10,25 @@ const YT_DATA_API_V3_KEY = 'AIzaSyBrudJvBV7uhwKnJ-gCiLiPskQiWXaR5Xk';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {videos: []};
+        this.state = {
+            videos: [],
+            selectedVideo: null
+        };
         YTSearch({key: YT_DATA_API_V3_KEY, term: 'ivanontech'}, (videos) => {
-            this.setState({videos});
+            this.setState({
+                videos,
+                selectedVideo: videos[0]
+            });
         });
     }
     render () {
         return (
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]}/>
-                <VideoList videos={this.state.videos} />
+                <VideoDetail video={this.state.selectedVideo}/>
+                <VideoList
+                    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                    videos={this.state.videos} />
             </div>
         );  
     }
