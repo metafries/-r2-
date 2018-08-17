@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class ClubList extends Component {
+class ClubList extends Component {
 
     renderList() {
         return this.props.clubs.map((club) => {
@@ -18,3 +19,15 @@ export default class ClubList extends Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+
+    // Whatever is returned will show up as props
+    // inside of ClubList
+    return {
+        clubs: state.clubs
+    };        
+}
+
+export default connect(mapStateToProps)(ClubList);
+

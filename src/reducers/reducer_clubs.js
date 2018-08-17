@@ -1,4 +1,5 @@
-function() {
+export default function() {
+    
     return [
         { name: 'Manchester United'},
         { name: 'Liverpool'},
