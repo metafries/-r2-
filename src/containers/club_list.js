@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { selectClub } from '../actions/index';
+import { bindActionCreators } from 'redux';
 
 class ClubList extends Component {
 
@@ -29,5 +31,16 @@ function mapStateToProps(state) {
     };        
 }
 
-export default connect(mapStateToProps)(ClubList);
+// Anything returned from this function will end of as props
+// on the ClubList container
+function mapDispatchToProps(dispatch) {
+    // Whenever selectClub is called, the result should be passed
+    // to all of our reducers
+    return bindActionCreators({ selectClub: selectClub }, dispatch);
+}
+
+// Promote ClubList from a component to a container - it needs to know
+// about this new dispatch method, selectClub. Make it available
+// as a prop.
+export default connect(mapStateToProps, mapDispatchToProps)(ClubList);
 
