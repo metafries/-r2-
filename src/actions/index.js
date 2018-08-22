@@ -1,3 +1,8 @@
 export function selectClub(club) {
-    console.log('A club has been selected:', club.name);
+    // selectClub is an ActionCreator, it needs to return an acton,
+    // an object with a type property.
+    return {
+        type: 'CLUB_SELECTED',
+        payload: club
+    };
 }

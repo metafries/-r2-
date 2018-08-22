@@ -8,7 +8,12 @@ class ClubList extends Component {
     renderList() {
         return this.props.clubs.map((club) => {
             return (
-                <li key={club.name} className="list-group-item">{club.name}</li>
+                <li 
+                key={club.name}
+                onClick={() => this.props.selectClub(club)}
+                className="list-group-item">
+                {club.name}
+                </li>
             );
         });
     }
