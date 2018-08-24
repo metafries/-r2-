@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import clubsReducer from './reducer_clubs';
+import ClubsReducer from './reducer_clubs';
+import ActiveClub from './reducer_active_club';
 
 const rootReducer = combineReducers({
-    clubs: clubsReducer
+    clubs: ClubsReducer,
+    ActiveClub: ActiveClub
 });
 
 export default rootReducer;
