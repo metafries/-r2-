@@ -4,7 +4,7 @@ import ActiveClub from './reducer_active_club';
 
 const rootReducer = combineReducers({
     clubs: ClubsReducer,
-    ActiveClub: ActiveClub
+    activeClub: ActiveClub
 });
 
 export default rootReducer;

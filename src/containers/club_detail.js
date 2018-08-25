@@ -3,8 +3,16 @@ import { connect } from 'react-redux';
 
 class ClubDetail extends Component {
     render() {
+        if(!this.props.club) {
+            return <div>Select a club to get started.</div>;
+        }
+
         return (
-            <div>Club Detail!</div>            
+            <div>
+                <h3>Details for:</h3>
+                <div>Name: {this.props.club.name}</div>
+                <div>Founded: {this.props.club.founded}</div>
+            </div>            
         );
     }
 }
