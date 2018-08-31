@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectClub } from '../actions/index';
+import { selectClub } from '../actions/club_index';
 import { bindActionCreators } from 'redux';
 
 class ClubList extends Component {
